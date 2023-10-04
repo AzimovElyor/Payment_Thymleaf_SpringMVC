@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistikalar</title>
+    <link rel="stylesheet" href="/css/admin/statics.css">
+    <!-- Ikonkalarni uchun Font Awesome kutubxonasi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</head>
+<body>
+<div th:replace="/admin/adminNavbar.html"></div>
+<div id="pageStats">
+    <h2>Statistikalar</h2>
+    <p><i class="fas fa-users"></i> Umumiy foydalanuvchilar soni: <span id="totalUsers" th:text="${staticstics.getAllUsers()}"></span></p>
+    <p><i class="fas fa-user-slash"></i> Delete bo'lgan foydalanuvchilar soni: <span th:text="${staticstics.getDeleteUsers()}" id="deletedUsers"></span></p>
+    <p><i class="fas fa-credit-card"></i> Royxatdan o'tgan kartalar soni: <span th:text="${staticstics.getAllCards()}" id="registeredCards">...</span></p>
+    <p><i class="fas fa-coins"></i> Umumiy alymanma summa: <span th:text="${staticstics.getTotalAmount()}" id="totalIncome"></span></p>
+    <p><i class="fas fa-hand-holding-usd"></i> Commission summa: <span th:text="${staticstics.getTotalCommission()}" id="commissionAmount">...</span></p>
+    <p><i class="fas fa-exchange-alt"></i> Jami tranzaktsiyalar soni: <span th:text="${staticstics.getTransactionsCount()}" id="totalTransactions">...</span></p>
+</div>
+</body>
+</html>

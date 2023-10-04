@@ -1,0 +1,43 @@
+/* adminNavbar.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.admin-navbar {
+    background-color: #333;
+    color: #fff;
+}
+
+.admin-navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-navbar li {
+    margin: 0 10px;
+}
+
+.admin-navbar a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.admin-navbar a i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.admin-navbar .active {
+    background-color: #555;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Menu</title>
+    <link rel="stylesheet" th:href="@{/css/mainMenu.css}" />
+
+</head>
+<body>
+<div th:replace="mainMenuFoter.html"></div>
+<div class="container">
+<section class="user-card">
+    <table>
+        <thead>
+        <tr>
+            <th>Card Number</th>
+            <th>Valid Date</th>
+            <th>Balance</th>
+            <th>Created Date</th>
+            <th>
+                <a th:href="@{/card/create}">
+                   <button>Add Card</button>
+                </a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- User card rows go here -->
+        <tr th:each="card:${cards}">
+            <td th:text="${card.getCardNumber()}"></td>
+            <td th:text="${card.getValidDate()}"></td>
+            <td th:text="${card.getBalance()}"></td>
+            <td th:text="${card.getCreatedDate()}"></td>
+            <td>
+                <a th:href="@{/card/update/${card.getId()}}">
+                    <button>Edit</button>
+                </a>
+                <a th:href="@{/card/delete/${card.getId()}}">
+            <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        <!-- More user card rows can be added here -->
+        </tbody>
+    </table>
+</section>
+
+<section class="user-info">
+    <div class="user-info">
+        <h2>User Information</h2>
+        <p th:text="'Name : ' + ${user.getName()}" > </p>
+        <p th:text=" 'Username : ' + ${user.getUsername()}"></p>
+        <p th:text=" 'Age ' + ${user.getAge()}"></p>
+        <p th:text="'Addad date : '+${user.getCreatedDate()}"> </p>
+        <a th:href="@{/user/update}">
+            <button>Edit</button>
+        </a>
+        <a th:href="@{/user/delete}">
+            <button>Delete</button>
+        </a>
+    </div>
+</section>
+</div>
+
+
+<!--<script type="text/javascript" th:src="@{/js/user/edit.js}"></script>-->
+</body>
+</html>

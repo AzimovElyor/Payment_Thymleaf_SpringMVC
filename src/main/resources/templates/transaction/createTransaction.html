@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tranzaktsiya</title>
+  <link rel="stylesheet" th:href="@{/css/transaction/addTransaction.css}">
+</head>
+<body>
+<div th:replace="mainMenuFoter.html"></div>
+<div th:if="${exceptions != null}">
+    <td th:each="exception : ${exceptions}">
+        <h3 th:text="${exception.getMessage()}" style="color: red; text-align: center"></h3>
+    </td>
+</div>
+<h1>Tranzaktsiya</h1>
+<div class="transaction-form">
+  <form th:action="@{/transaction/create}" method="post">
+<input type="hidden" th:value="${user.getId()}" name="ownerId">
+    <label for="sender-card">Yuboruvchi Kartani Tanlang:</label>
+    <select id="sender-card" name="senderCardNumber">
+      <option name="senderCardNumber" th:each="card : ${cards}" th:value="${card.getCardNumber()}" th:text="${card.getCardNumber()}"></option>
+    </select>
+
+    <!-- Receiver cardni kiritish bo'limi -->
+    <label for="receiver-card">Qabul qiluvchi Kartani Kiriting:</label>
+    <input type="text" id="receiver-card" name="receiverCardNumber" required pattern="[0-9]{8}" minlength="8" maxlength="8">
+
+    <!-- Pul miqdori kiritish bo'limi -->
+    <label for="amount">Miqdor:</label>
+    <input type="number" id="amount" name="price" required min="0">
+    <input type="hidden" id="isIn" name="isIn" th:value="true">
+
+    <!-- Tranzaksiyani amalga oshirish tugmasi -->
+    <button type="submit" id="submit-button">To'lov</button>
+  </form>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

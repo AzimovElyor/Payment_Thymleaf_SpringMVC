@@ -1,0 +1,29 @@
+nav {
+    background-color: #333;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Elementlarni ekranning ozida joylash */
+    align-items: center; /* Elementlarni vertikal ravishda markazga tortish */
+    height: 50px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px; /* Yuqori va pastdagi marginlarni o'zgartirish */
+    border-radius: 5px; /* Kengaytirilgan tugma shakli */
+    transition: background-color 0.3s; /* Rang o'zgarishining animatsiyasi */
+}
+
+nav ul li a:hover {
+    background-color: #ff5733; /* Chiroyki xususiyati bo'lganda rangni o'zgartirish */
+}

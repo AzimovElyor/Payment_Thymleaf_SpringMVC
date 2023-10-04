@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- FontAwesome kutubxonasi uchun link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/user/deleteUser.css">
+</head>
+<body>
+<div th:replace="mainMenuFoter.html"></div>
+<div class="excepton" th:if="${exception != null}">
+    <h3 style="color:red;text-align: center" th:text="${exception.getMessage()}"></h3>
+</div>
+<div class="container">
+    <h1>Delete Page</h1>
+    <form method="post" action="/user/delete">
+        <p>Siz dasturdan foydalanishni toxtatishga rozimisiz?</p>
+        <div class="button-container">
+            <button type="submit" class="delete-btn"><i class="fas fa-trash-alt icon"></i>Delete</button>
+        </div>
+    </form>
+    <div class="button-container">
+        <a href="/user/menu" class="cancel-btn">Cancel</a>
+    </div>
+</div>
+</body>
+</html>

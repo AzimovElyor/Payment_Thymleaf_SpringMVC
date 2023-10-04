@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* CSS yordamida navbar stilini belgilaymiz */
+    .navbar {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 50px;
+    }
+
+    /* Menularni stilini belgilaymiz */
+    .navbar a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Ikonkalar uchun stil */
+    .navbar a i {
+      color: gold; /* Ikonkalar rangi */
+      font-size: 18px; /* Ikonkalar o'lchami */
+      margin-right: 5px; /* Ikonkalar orasidagi bo'shlik */
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<div class="navbar">
+  <a href="/home">
+    <i class="fas fa-home"></i>
+    Home
+  </a>
+  <a href="/service">
+    <i class="fas fa-cogs"></i>
+    Service
+  </a>
+  <!-- Qolgan menular -->
+  <a href="/about">
+    <i class="fas fa-info-circle"></i>
+    About
+  </a>
+  <a href="/contact">
+    <i class="fas fa-envelope"></i>
+    Contact
+  </a>
+  <!-- Qo'shimcha menularni qo'shishingiz mumkin -->
+  <a href="/portfolio">
+    <i class="fas fa-folder"></i>
+    Portfolio
+  </a>
+  <a href="/user/menu">
+    <i class="fas fa-bars"></i>
+    Main Menu
+  </a>
+  <a href="/payment">
+    <i class="fas fa-money-bill"></i>
+    To'lovlar
+  </a>
+
+  <!-- O'tkazmalar bo'limi -->
+  <a th:href="@{/transaction/create}">
+    <i class="fas fa-shipping-fast"></i>
+    O'tkazmalar
+  </a>
+
+  <!-- Transaksiyalar bo'limi -->
+  <a href="/transaction/user-transactions">
+    <i class="fas fa-exchange-alt"></i>
+    Transaksiyalar
+  </a>
+  <a href="/user/logout">
+    <i class="fas fa-sign-out-alt"></i>
+    Log Out
+  </a>
+</div>
+</body>
+</html>

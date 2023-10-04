@@ -1,0 +1,42 @@
+/* users.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+#filterSection {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#filterSection label {
+    margin-right: 10px;
+}
+
+#usersTable {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+#usersTable th, #usersTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#usersTable th {
+    background-color: #333;
+    color: #fff;
+}
+.fas.fa-user {
+    color: blue; /* Ikon rangi (hodisa rangi) */
+    font-size: 24px; /* Ikon o'lchami */
+    margin-right: 5px; /* Ikonning o'ng tarafidagi bo'sh joy */
+}

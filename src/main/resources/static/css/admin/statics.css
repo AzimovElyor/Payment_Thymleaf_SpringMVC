@@ -1,0 +1,31 @@
+/* Statistikalar sahifasi uchun CSS */
+#pageStats {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+#pageStats h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+#pageStats p {
+    font-size: 18px;
+    color: #666;
+    margin: 10px 0;
+}
+
+#pageStats span {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Ikonka stili */
+i {
+    margin-right: 5px;
+    font-size: 20px;
+}

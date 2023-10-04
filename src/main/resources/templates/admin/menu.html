@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/admin/adminMenu.css">
+</head>
+<body>
+<div th:replace="/admin/adminNavbar.html"></div>
+<nav>
+    <ul>
+        <li><a href="#admin">Admin</a></li>
+        <li><a href="#transactions">Transaksiyalar</a></li>
+    </ul>
+</nav>
+<main>
+    <section id="admin">
+        <h2>Adminning Malumotlari</h2>
+        <div id="adminInfo">
+            <h2 th:text="'Name : ' +${admin.getName()}" ></h2>
+            <h2 th:text="'Username : ' +  ${admin.getUsername()}" ></h2>
+            <h2 th:text="'Age : ' + ${admin.getAge()}" ></h2>
+        </div>
+    </section>
+    <section id="transactions">
+        <h2>Transaksiyalar</h2>
+            <div id="filterSection">
+                <form action="/admin/menu" method="get">
+                <label for="size">Size:</label>
+                <input type="number" id="size" min="1" max="15" name="size" value="10">
+                <label for="page">Page:</label>
+                <input type="number" id="page" min="0" name="page" value="0">
+                <label for="startDate">Boshlanish san'asi:</label>
+                <input type="datetime-local" id="startDate" name="startDate">
+                <label for="finishDate">Tugash san'asi:</label>
+                <input type="datetime-local" id="finishDate" name="finishDate" >
+                <button id="filterButton" >Filter</button>
+        </form>
+            </div>
+
+
+        <div id="transactionsTable">
+            <table>
+                <thead>
+                <tr>
+                    <th>Owner Name</th>
+                    <th>Sender Card ID</th>
+                    <th>Receiver Card ID</th>
+                    <th>Amount</th>
+                    <th>Commission</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Tranzaksiyalar ro'yxati -->
+                <tr th:each="transaction : ${transactions}">
+                    <td th:text="${transaction.getOwnerName()}">ID</td>
+                    <td th:text="${transaction.getSenderCardNumber()}">Owner Name</td>
+                    <td th:text="${transaction.getReceiverCardNumber()}">Sender Card ID</td>
+                    <td th:text="${transaction.getPrice()}">Receiver Card ID</td>
+                    <td th:text="${transaction.getCommission()}">Date</td>
+                    <td th:text="${transaction.getCreatedDate()}">Amount</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+<footer>
+    &copy; 2023 Admin Panel
+</footer>
+</body>
+</html>

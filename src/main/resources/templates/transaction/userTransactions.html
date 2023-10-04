@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tranzaktsiyalarim tarixi</title>
+  <link th:rel="stylesheet" th:href="@{/css/transaction/userTransactions.css}">
+</head>
+<body>
+<div th:replace="mainMenuFoter.html"></div>
+<h1>Transactionlar</h1>
+<form th:action="@{/transaction/user-transactions}">
+<div class="filters">
+  <label for="size">Size:</label>
+  <input type="number" id="size" name="size" min="0" value="5" max="10">
+
+  <label for="page">Page:</label>
+  <input type="number" id="page" name="page" min="0" value="0">
+  <select id="filter" name="role" >
+    <option value="ALL">Barchasi</option>
+    <option value="SENDER">Jo'natuvchi</option>
+    <option value="RECEIVER">Qabul qiluvchi</option>
+  </select>
+  <label for="startDate">Boshlanish san'asi:</label>
+  <input type="datetime-local" id="startDate" name="startDate">
+  <label for="finishDate">Tugash san'asi:</label>
+  <input type="datetime-local" id="finishDate" name="finishDate" >
+  <button id="filterButton" type="submit">Filtrlash</button>
+</div>
+</form>
+<!-- Tranzaksiyalar jadvali -->
+<table>
+  <thead>
+  <tr>
+    <th>Owner Name</th>
+    <th>Sender Card</th>
+    <th>Receiver Card</th>
+    <th>Amount</th>
+    <th>Commission</th>
+    <th>Transaction Role</th>
+    <th>Amalga oshirilgan kun</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr th:each="transaction : ${transactions}">
+    <td th:text="${transaction.getOwnerName()}"></td>
+    <td th:text="${transaction.getSenderCardNumber()}"></td>
+    <td th:text="${transaction.getReceiverCardNumber()}"></td>
+    <td th:text="${transaction.getPrice()}"></td>
+    <td th:text="${transaction.getCommission()}"></td>
+    <td th:text="${transaction.getRole()}"></td>
+    <td th:text="${transaction.getCreatedDate()}"></td>
+  </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>
